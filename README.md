@@ -1,16 +1,5 @@
 # roxberry-shift-jobs
 
-## Project setup
-```
-npm install
-```
+## ABOUT
+This is a Vue/Firebase app for tracking shift jobs at Roxberry Juice. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
