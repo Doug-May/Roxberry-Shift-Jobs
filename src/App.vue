@@ -1,33 +1,22 @@
 <template>
+  <div id="app" class="fadeIn">
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <Header/>
+    <v-container>
+      <transition name="router-anim" mode="out-in">
+        <router-view/>
+      </transition>
+    </v-container>
   </v-app>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import Header from '@/components/Header.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header
   },
   data () {
     return {
@@ -36,3 +25,58 @@ export default {
   }
 }
 </script>
+
+<style>
+#app {
+  background-color: #fff;
+}
+
+.router-anim-enter-active {
+  animation: coming 550ms;
+  opacity: 0;
+}
+
+.router-anim-leave-active {
+  animation: going 550ms;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1000ms forwards 1;
+  animation-delay: 500ms;
+}
+
+@keyframes going {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(7px);
+    opacity: 0;
+  }
+}
+
+@keyframes coming {
+  from {
+    transform: translateX(-7px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+    from {
+      /* transform: translate(0px, 30px); */
+      opacity: 0;
+    }
+
+    to {
+      /* transform: translate(0px, 0px); */
+      opacity: 1;
+    }
+  }
+</style>
